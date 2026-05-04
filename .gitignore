@@ -1,0 +1,24 @@
+# Virtual environment
+gstreamer_env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Byte-compiled files
+*.pyc
+
+# Test/temp media files
+*.mp4
+*.h264
+*.h265
+*.jpg
+*.png
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
