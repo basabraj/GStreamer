@@ -1,3 +1,6 @@
+<img width="588" height="330" alt="WhatsApp Image 2026-05-06 at 1 23 08 PM" src="https://github.com/user-attachments/assets/733a4bf2-0534-4078-b52e-c924d839a20a" />
+
+
 # GStreamer Pipeline — Raspberry Pi Camera & RTSP Streaming
 
 A Python-based video streaming project using GStreamer on a Raspberry Pi 5. It captures live video from the Raspberry Pi Camera Module, displays it locally, processes frames with NumPy, and streams encoded H.264 video over UDP. It also includes RTSP receivers for single and multi-camera network streams displayed in a composite window.
