@@ -1,6 +1,6 @@
-<img width="588" height="330" alt="WhatsApp Image 2026-05-06 at 1 23 08 PM" src="https://github.com/user-attachments/assets/733a4bf2-0534-4078-b52e-c924d839a20a" />
+<img width="792" height="293" alt="simple-player" src="https://github.com/user-attachments/assets/a2b568d7-24c2-40ea-9b9d-e29c42a8d875" />
 
-<img width="792" height="293" alt="simple-player" src="https://github.com/user-attachments/assets/c66e2e09-e4bd-43d6-b67b-43040e1ed308" />
+<img width="588" height="330" alt="WhatsApp Image 2026-05-06 at 1 23 08 PM" src="https://github.com/user-attachments/assets/39be957c-3f81-4833-87ca-404025c37ede" />
 
 
 # GStreamer Pipeline — Raspberry Pi Camera & RTSP Streaming
