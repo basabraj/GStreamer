@@ -1,7 +1,10 @@
 # Python dependencies for GStreamer Pipeline project
 # Install with: pip install -r requirements.txt
 #
-# Requires system packages to be installed first — see README.md
+# Requires system packages first — see README.md (general) and README_QR.md (QR scanners)
+# Key system packages:
+#   gstreamer1.0-libcamera  (libcamerasrc element — Pi camera only)
+#   alsa-utils              (aplay — QR scanner done chime)
 
 # GObject Introspection bindings for GStreamer (PyGObject)
 PyGObject==3.46.0
@@ -9,10 +12,10 @@ PyGObject==3.46.0
 # Cairo graphics bindings — required dependency of PyGObject
 pycairo==1.29.0
 
-# Frame buffer manipulation for appsink/appsrc
+# Frame buffer manipulation for appsink/appsrc; also used for WAV audio generation
 numpy==2.4.4
 
-# OpenCV — used for image processing only (not for display or capture)
+# OpenCV — QR code detection (cv2.QRCodeDetectorAruco) and frame annotation
 # Note: opencv-python from PyPI does NOT include GStreamer support on ARM.
 #       Use PyGObject (gi.repository.Gst) for all pipeline control.
 opencv-python==4.13.0.92

@@ -6,11 +6,28 @@ A Python-based video streaming project using GStreamer on a Raspberry Pi 5. It c
 
 ## Project Files
 
+### `IP camera/` — Pi Camera & RTSP viewers
+
 | File | Description |
 |---|---|
-| `rpi_camera.py` | Captures from Pi camera, displays locally, streams H.264 via UDP |
-| `RTSP_correct.py` | Receives and displays a single RTSP H.265 stream from a network camera |
+| `IP camera/rpi_camera.py` | Captures from Pi camera, displays locally, streams H.264 via UDP |
+| `IP camera/RTSP_correct.py` | Receives and displays a single RTSP H.265 stream from a network camera |
+| `IP camera/RTSP_wrong.py` | Early prototype — kept for reference only |
+
+### Root — Multi-camera & LPR
+
+| File | Description |
+|---|---|
 | `RTSP_pipeline string approach.py` | Receives two RTSP streams and displays them side by side in one composite window |
+| `RTSP_bullet.py` | Receives and displays an RTSP stream from the IR bullet camera |
+| `RTSP_LPR.py` | RTSP receiver with Hailo-based licence-plate recognition |
+
+### `QR/` — QR code scanners
+
+| File | Description |
+|---|---|
+| `QR/qr_scanner_rpi.py` | One-shot QR scanner using the Pi camera (libcamerasrc) |
+| `QR/qr_scanner_RTSP.py` | One-shot QR scanner using a network RTSP camera (H.265) |
 
 ---
 
@@ -92,7 +109,7 @@ systemctl --user stop wireplumber pipewire pipewire-pulse
 **Step 2 — Activate the virtual environment and run:**
 ```bash
 source gstreamer_env/bin/activate
-python rpi_camera.py
+python "IP camera/rpi_camera.py"
 ```
 
 **Step 3 — To receive the UDP stream on another machine:**
@@ -107,7 +124,7 @@ gst-launch-1.0 udpsrc port=6000 ! \
 systemctl --user start pipewire pipewire-pulse wireplumber
 ```
 
-**To add custom image processing**, edit the marked section in `rpi_camera.py`:
+**To add custom image processing**, edit the marked section in `IP camera/rpi_camera.py`:
 ```python
 ### PYTHON IMAGE PROCESSING HERE ###
 ```
@@ -123,7 +140,7 @@ Receives an H.265 RTSP stream from a network IP camera and displays it in a wind
 rtspsrc → rtph265depay → h265parse → avdec_h265 → videoconvert → autovideosink
 ```
 
-**Step 1 — Set the RTSP URL** in `RTSP_correct.py`:
+**Step 1 — Set the RTSP URL** in `IP camera/RTSP_correct.py`:
 ```python
 RTSP_URL = "rtsp://username:password@camera-ip:554/stream-path"
 ```
@@ -131,7 +148,7 @@ RTSP_URL = "rtsp://username:password@camera-ip:554/stream-path"
 **Step 2 — Run:**
 ```bash
 source gstreamer_env/bin/activate
-python RTSP_correct.py
+python "IP camera/RTSP_correct.py"
 ```
 
 > Note: PipeWire does **not** need to be stopped for RTSP streaming.
